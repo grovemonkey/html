@@ -1,24 +1,28 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-
+    <py-env>
+        - numpy
+        - matplotlib
+    </py-env>
 </head>
 
 <body>
+    <div id="plot"></div>
+    <py-script output="plot">
+import matplotlib.pyplot as plt
+import numpy as np
 
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+x = np.random.randn(1000)
+y = np.random.randn(1000)
 
-    <!-- Magic is here! -->
-    <py-script>
-def print_special(message):
-    print(f'*{message}*')
-
-for i in range(1,11):
-    print_special(f'message_{i}')
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
     </py-script>
 
 </body>
